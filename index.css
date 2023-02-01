@@ -1,0 +1,103 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1a1a1d;
+    color: white;
+}
+#Wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table, th, td{
+    border: 1px solid rgb(255, 255, 255);
+}
+table{
+    width: 100%;
+}
+#Header{
+    margin: auto;
+    text-align: center;
+}
+#Header h1{
+    font-size: 50px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #C3073F;
+}
+#Header h2{
+    color: #C3073F
+}
+#Input-Fields{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 25px;
+}
+#Name-Container{
+    display: flex;
+    margin-bottom: 10px;
+}
+#Date-Amount-Container{
+    display: flex;
+    width: 100%;
+    flex: auto;
+}
+#Input-Fields p{
+    font-size: 20px;
+    margin: 0%;
+    margin-top: 5px;
+    color: #C3073F
+}
+#Date-Container{
+    display: flex;
+    width:100%;
+    margin-bottom: 10px;
+}
+#Amount-Container{
+    display: flex;
+    width:100%;
+}
+input{
+    width:100%;
+    height: 30px;
+    color: #4E4E50;
+    font-weight: 100;
+}
+#Button-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+Button{
+    width: 100px;
+    height: 30px;
+    background-color: #C3073F;
+    color: white;
+    border-radius: 5px;
+    border-width: 0;
+    transition: 0.2s;
+    margin: 0;
+}
+Button:hover{
+    background-color: #950740;
+}
+Button:active{
+    background-color: #950740;
+    opacity: 0.6;
+}
+#Table-Container{
+    display: flex;
+    width: 800px
+}
+table{
+    color: #C3073F;
+    border-radius: 5px;
+}
+.Edit-Element{
+    display: flex;
+}
+.Edit-Element button{
+    flex: 1 1 30%;
+}
