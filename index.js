@@ -9,12 +9,10 @@ window.addEventListener('load', () =>
     //Check if there are any stored rows and display them
     if(localStorage.getItem("saved_Rows") !== null)
     {
-        console.log("found rows");
         jsonFile = localStorage.getItem("saved_Rows");
         parsedJSONFile = JSON.parse(jsonFile);
         
         let row_Array = Object.values(parsedJSONFile);
-        console.log(row_Array);
 
         row_Array.forEach(row => {
             
@@ -41,10 +39,9 @@ window.addEventListener('load', () =>
 
 });
 
-//Create html elements
 function Submit(name_Input, date_Input, amount_Input, table_el){
     
-    console.log(name + date + amount);
+    //Create html elements
     const row_el = document.createElement("tr");
     row_el.classList.add("Row");
     const name_el = document.createElement("td");
@@ -65,6 +62,7 @@ function Submit(name_Input, date_Input, amount_Input, table_el){
     date_el.contentEditable = false;
     amount_el.contentEditable = false;
 
+    //Button allows rows to be edited
     edit_button.addEventListener('click', () => {
         if(edit_button.innerText.toLowerCase() == "edit")
         {
@@ -73,7 +71,6 @@ function Submit(name_Input, date_Input, amount_Input, table_el){
             date_el.contentEditable = true;
             temp = amount_el.innerText;
             amount_el.contentEditable = true;
-            console.log("edit");
         }
         else{
             edit_button.innerText = "Edit";
@@ -86,7 +83,6 @@ function Submit(name_Input, date_Input, amount_Input, table_el){
                 amount_el.innerText = temp;
                 return;
             }
-            console.log("save");
             SaveRows();
         }
     });
@@ -94,11 +90,13 @@ function Submit(name_Input, date_Input, amount_Input, table_el){
     const delete_button = document.createElement("button");
     delete_button.innerText = "Delete";
 
+    //Button allows rows to be deleted
     delete_button.addEventListener('click', () => {
         table_el.removeChild(row_el);
         SaveRows();
     });
 
+    //Stucture new elements
     edit_el.appendChild(edit_button);
     edit_el.appendChild(delete_button);
     row_el.appendChild(name_el);
@@ -114,6 +112,8 @@ function SaveRows()
     saved_Row_JSON = {};
     row_Arr = document.querySelectorAll('.Row');
     var i = 0;
+
+    //Iterate through each row and save as text.
     row_Arr.forEach(element =>{
         name = element.children[0].innerText;
         date = element.children[1].innerText;
@@ -124,5 +124,4 @@ function SaveRows()
     });
 
     localStorage.setItem('saved_Rows', JSON.stringify(saved_Row_JSON));
-    console.log(localStorage.getItem('saved_Rows'));
 }
